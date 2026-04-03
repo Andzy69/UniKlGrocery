@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="ProductPage.Site1" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>UniKL Grocery</title>
+    <link href="<%= ResolveUrl("~/StyleSheet1.css?v=2") %>" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server">
+       <div class="top-bar">
+            <div style="width:40px;"></div>
+
+            <div class="store-title">
+                <h2>UniKL Grocery Store</h2>
+                <p>Fresh & Daily Groceries</p>
+            </div>
+
+            <div class="profile" id="profileMenu" onclick="toggleProfileMenu(event)">
+                <div class="profile-circle">
+                    <asp:Label ID="lblInitial" runat="server" Text="U" />
+                </div>
+                   <div class="profile-name">
+                    <asp:Label ID="lblUsername" runat="server" />
+                </div>
+                <div class="dropdown" id="profileDropdown">
+                    <asp:Panel ID="pnlAdminLink" runat="server" Visible="false">
+                        <a href="Dashboard.aspx">Admin Dashboard</a>
+                    </asp:Panel>
+                    <asp:LinkButton
+                        ID="btnLogout"
+                        runat="server"
+                        OnClick="btnLogout_Click">
+                        Log out
+                    </asp:LinkButton>
+                </div>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="GroceryList.aspx">Home</a> |
+            <a href="Cart.aspx">My Cart</a>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+    </form>
+    <script>
+        function toggleProfileMenu(e) {
+            e.stopPropagation();
+            document.getElementById("profileDropdown").classList.toggle("show");
+        }
+        document.addEventListener("click", function () {
+            var dropdown = document.getElementById("profileDropdown");
+            if (dropdown) {
+                dropdown.classList.remove("show");
+            }
+        });
+    </script>
+
+</body>
+</html>

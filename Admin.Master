@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="ProductPage.Admin.Admin" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Admin Dashboard</title>
+    
+    <link href="AdminStyle.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="wrapper">
+            
+            <div class="sidebar">
+                <h2>Admin Panel</h2>
+                <a href="Dashboard.aspx">📊 Dashboard</a>
+                <a href="Reports.aspx">📑 Sales Reports</a>
+                <a href="../GroceryList.aspx">🛍️ Back to Store</a>
+            </div>
+
+            <div class="content">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
