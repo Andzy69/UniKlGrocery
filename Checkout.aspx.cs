@@ -2,7 +2,6 @@
 using System.Configuration;
 using System.Data.SqlClient;
 
-//try
 
 namespace ProductPage
 {
