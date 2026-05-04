@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,7 +7,7 @@ namespace ProductPage.Admin
 {
     public partial class Dashboard : System.Web.UI.Page
     {
-        string cs = ConfigurationManager.ConnectionStrings["GrocerieShop"].ConnectionString;
+        string cs = ConfigurationManager.ConnectionStrings["GroceriecsData"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -72,8 +72,8 @@ namespace ProductPage.Admin
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    lblTotalSales.Text = "RM " + Convert.ToDecimal(dr["TotalSales"]).ToString("0.00");
-                    lblTotalOrders.Text = dr["TotalOrders"].ToString();
+                    lblTotalSales.Text     = "RM " + Convert.ToDecimal(dr["TotalSales"]).ToString("0.00");
+                    lblTotalOrders.Text    = dr["TotalOrders"].ToString();
                     lblTotalCustomers.Text = dr["TotalCustomers"].ToString();
                 }
             }
@@ -120,10 +120,10 @@ namespace ProductPage.Admin
         // ── Read filter control values ────────────────────────────────────────
         void ReadFilters(out string catId, out DateTime? dateFrom, out DateTime? dateTo)
         {
-            catId = string.IsNullOrWhiteSpace(ddlCategory.SelectedValue)
+            catId    = string.IsNullOrWhiteSpace(ddlCategory.SelectedValue)
                            ? null : ddlCategory.SelectedValue;
             dateFrom = DateTime.TryParse(txtDateFrom.Text, out DateTime df) ? df : (DateTime?)null;
-            dateTo = DateTime.TryParse(txtDateTo.Text, out DateTime dt) ? dt : (DateTime?)null;
+            dateTo   = DateTime.TryParse(txtDateTo.Text,   out DateTime dt) ? dt : (DateTime?)null;
         }
 
         // ── Button handlers ───────────────────────────────────────────────────
@@ -138,7 +138,7 @@ namespace ProductPage.Admin
         {
             ddlCategory.SelectedIndex = 0;
             txtDateFrom.Text = string.Empty;
-            txtDateTo.Text = string.Empty;
+            txtDateTo.Text   = string.Empty;
 
             LoadDashboardStats(null, null, null);
             ApplyGridFilter(null, null, null);
