@@ -17,6 +17,7 @@
             <div class="sidebar">
                 <h2>Admin Panel</h2>
                 <a href="Dashboard.aspx">📊 Dashboard</a>
+                <a href="AdminReturns.aspx">🔄 Manage Return Requests</a>
                 <a href="Reports.aspx">📑 Sales Reports</a>
                 <a href="../GroceryList.aspx">🛍️ Back to Store</a>
             </div>
