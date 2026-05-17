@@ -9,54 +9,36 @@
 
 namespace ProductPage.Admin
 {
-
-
     public partial class Dashboard
     {
-
-        /// <summary>
-        /// lblTotalSales control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+        /// <summary>lblTotalSales control.</summary>
         protected global::System.Web.UI.WebControls.Label lblTotalSales;
 
-        /// <summary>
-        /// lblTotalOrders control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+        /// <summary>lblTotalOrders control.</summary>
         protected global::System.Web.UI.WebControls.Label lblTotalOrders;
 
-        /// <summary>
-        /// lblTotalCustomers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+        /// <summary>lblTotalCustomers control.</summary>
         protected global::System.Web.UI.WebControls.Label lblTotalCustomers;
 
-        /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+        /// <summary>ddlCategory — filter dropdown populated from Categories table.</summary>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
+
+        /// <summary>txtDateFrom — date range start filter.</summary>
+        protected global::System.Web.UI.WebControls.TextBox txtDateFrom;
+
+        /// <summary>txtDateTo — date range end filter.</summary>
+        protected global::System.Web.UI.WebControls.TextBox txtDateTo;
+
+        /// <summary>btnApply — applies selected filters.</summary>
+        protected global::System.Web.UI.WebControls.Button btnApply;
+
+        /// <summary>btnReset — clears all filters.</summary>
+        protected global::System.Web.UI.WebControls.Button btnReset;
+
+        /// <summary>SqlDataSource1 control.</summary>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
-        /// <summary>
-        /// gvRecent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
+        /// <summary>gvRecent GridView control.</summary>
         protected global::System.Web.UI.WebControls.GridView gvRecent;
     }
 }
