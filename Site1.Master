@@ -38,10 +38,11 @@
             </div>
         </div>
         <div class="nav-links">
-            <a href="GroceryList.aspx">Home</a> |
-            <a href="Cart.aspx">My Cart</a> |
-            <a href="ReturnRequest.aspx">Request Return</a>
-        </div>
+    <a href="GroceryList.aspx">Home</a> |
+    <a href="Cart.aspx">My Cart</a> |
+    <a href="PurchaseHistory.aspx">Purchase History</a> |
+    <a href="ReturnRequest.aspx">Request Return</a>
+</div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
     </form>
     <script>

@@ -122,6 +122,7 @@
     <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
     <Content Include="ReturnRequest.aspx" />
+    <Content Include="PurchaseHistory.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -216,6 +217,13 @@
     </Compile>
     <Compile Include="ReturnRequest.aspx.designer.cs">
       <DependentUpon>ReturnRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseHistory.aspx.cs">
+      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PurchaseHistory.aspx.designer.cs">
+      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
