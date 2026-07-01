@@ -112,6 +112,16 @@
             <label>Reason for Return:</label>
             <asp:TextBox ID="txtReason" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control" Placeholder="e.g., Damaged on arrival, wrong item delivered..."></asp:TextBox>
         </div>
+
+        <div class="form-group">
+            <label>Upload Proof of Damage (Optional):</label>
+            <asp:FileUpload ID="fuReturnImage" runat="server" CssClass="form-control" accept=".png,.jpg,.jpeg" onchange="previewImage(this);" />
+            
+            <div id="previewContainer" style="margin-top: 15px; display: none; text-align: center; background: #fcfcfc; padding: 10px; border-radius: 8px; border: 1px dashed #dcdde1;">
+                <p style="font-size: 13px; color: #7f8c8d; margin-bottom: 5px; font-weight: 600;">Image Preview:</p>
+                <img id="imgPreview" style="max-width: 100%; max-height: 250px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+            </div>
+        </div>
         
         <div class="form-group">
             <asp:Button ID="btnSubmitReturn" runat="server" Text="Submit Return Request" OnClick="btnSubmitReturn_Click" CssClass="btn-submit" />

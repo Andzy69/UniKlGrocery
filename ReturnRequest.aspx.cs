@@ -1,6 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Data.SqlClient;
 using System.Configuration;
+
 
 namespace ProductPage
 {
@@ -52,6 +54,36 @@ namespace ProductPage
 
             string selectedSalesId = ddlItems.SelectedValue;
             string reason = txtReason.Text.Trim();
+            string imagePath = null; 
+
+            if (fuReturnImage.HasFile)
+            {
+                string fileExtension = Path.GetExtension(fuReturnImage.FileName).ToLower();
+                string[] allowedExtensions = { ".jpg", ".jpeg", ".png" };
+
+                if (Array.Exists(allowedExtensions, ext => ext == fileExtension))
+                {
+                    string uniqueFileName = Guid.NewGuid().ToString() + fileExtension;
+
+                    string uploadFolder = Server.MapPath("~/ReturnImages/");
+
+                    if (!Directory.Exists(uploadFolder))
+                    {
+                        Directory.CreateDirectory(uploadFolder);
+                    }
+
+                    string savePath = Path.Combine(uploadFolder, uniqueFileName);
+                    fuReturnImage.SaveAs(savePath);
+
+                    imagePath = "~/ReturnImages/" + uniqueFileName;
+                }
+                else
+                {
+                    lblMessage.Text = "Only JPG, JPEG, and PNG images are allowed.";
+                    lblMessage.ForeColor = System.Drawing.Color.Red;
+                    return;
+                }
+            }
 
             using (SqlConnection conn = new SqlConnection(connStr))
             {
@@ -64,21 +96,23 @@ namespace ProductPage
                 object idResult = findIdCmd.ExecuteScalar();
                 int itemId = idResult != DBNull.Value && idResult != null ? Convert.ToInt32(idResult) : 0;
 
-                string insertQuery = @"INSERT INTO ReturnRequests (SalesID, ItemID, Reason, Status, RequestDate) 
-                               VALUES (@SalesID, @ItemID, @Reason, 'Pending', @Date)";
+                string insertQuery = @"INSERT INTO ReturnRequests (SalesID, ItemID, Reason, Status, RequestDate, ImagePath) 
+                                       VALUES (@SalesID, @ItemID, @Reason, 'Pending', @Date, @ImagePath)";
 
                 SqlCommand cmd = new SqlCommand(insertQuery, conn);
-                cmd.Parameters.AddWithValue("@SalesID", selectedSalesId); 
+                cmd.Parameters.AddWithValue("@SalesID", selectedSalesId);
                 cmd.Parameters.AddWithValue("@ItemID", itemId);
                 cmd.Parameters.AddWithValue("@Reason", reason);
                 cmd.Parameters.AddWithValue("@Date", DateTime.Now);
+
+                cmd.Parameters.AddWithValue("@ImagePath", (object)imagePath ?? DBNull.Value);
 
                 cmd.ExecuteNonQuery();
             }
 
             lblMessage.Text = "Your return request has been submitted successfully!";
             lblMessage.ForeColor = System.Drawing.Color.Green;
-            txtReason.Text = ""; 
+            txtReason.Text = "";
         }
     }
 }
