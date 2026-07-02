@@ -15,11 +15,14 @@
         <div class="wrapper">
             
             <div class="sidebar">
-                <h2>Admin Panel</h2>
-                <a href="Dashboard.aspx">📊 Dashboard</a>
-                <a href="Reports.aspx">📑 Sales Reports</a>
-                <a href="../GroceryList.aspx">🛍️ Back to Store</a>
-            </div>
+    <h2>Admin Panel</h2>
+    <a href="Dashboard.aspx">📊 Dashboard</a>
+    <a href="AdminReturns.aspx">🔄 Return Requests</a>
+    <a href="Reports.aspx">📑 Sales Reports</a>
+    <a href="../GroceryList.aspx">🛍️ Back to Store</a>
+    
+    <asp:LinkButton ID="btnAdminLogout" runat="server" OnClick="btnAdminLogout_Click" style="color: #e74c3c; margin-top: 20px; border-top: 1px solid #444; padding-top: 15px;">🚪 Log Out</asp:LinkButton>
+</div>
 
             <div class="content">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">

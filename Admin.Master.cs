@@ -13,5 +13,12 @@ namespace ProductPage.Admin
         {
 
         }
+
+        protected void btnAdminLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
+        }
     }
 }

@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminReturns.aspx" />
     <Content Include="AdminStyle.css" />
     <Content Include="App_Data\GroceriecsData.mdf" />
     <Content Include="App_Data\GroceriecsData_log.ldf">
@@ -121,6 +122,8 @@
     <Content Include="Reports.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
+    <Content Include="ReturnRequest.aspx" />
+    <Content Include="PurchaseHistory.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -129,6 +132,13 @@
     </Compile>
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AdminReturns.aspx.cs">
+      <DependentUpon>AdminReturns.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminReturns.aspx.designer.cs">
+      <DependentUpon>AdminReturns.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
@@ -202,6 +212,20 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
+    <Compile Include="ReturnRequest.aspx.cs">
+      <DependentUpon>ReturnRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReturnRequest.aspx.designer.cs">
+      <DependentUpon>ReturnRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseHistory.aspx.cs">
+      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PurchaseHistory.aspx.designer.cs">
+      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.Master" />
@@ -213,6 +237,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ReturnImages\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

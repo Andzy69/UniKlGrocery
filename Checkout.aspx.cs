@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data.SqlClient;
 
+
 namespace ProductPage
 {
     public partial class Checkout : System.Web.UI.Page
@@ -36,6 +37,7 @@ namespace ProductPage
 
         protected void btnPlaceOrder_Click(object sender, EventArgs e)
         {
+            int currentUserId = Session["UserID"] != null ? Convert.ToInt32(Session["UserID"]) : 0;
 
             string salesId = "SALE-" + DateTime.Now.ToString("yyyyMMddHHmmss");
             Session["SalesId"] = salesId;
@@ -46,18 +48,25 @@ namespace ProductPage
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
+
                 SqlCommand insertSales = new SqlCommand(@"
-                    INSERT INTO Sales (SalesId, ItemTitle, Quantity, Price, SalesDate, Confirmed)
-                    SELECT 
-                        @SalesId,
-                        ItemTitle,
-                        Quantity,
-                        ItemPrice,
-                        GETDATE(),
-                        1
-                    FROM Cart", con);
+            INSERT INTO Sales (SalesId, ItemTitle, ItemId, Quantity, Price, SalesDate, Confirmed, UserId)
+            SELECT 
+                @SalesId,
+                ItemTitle,
+                ItemId,    -- Grabbing ItemId from Cart
+                Quantity,
+                ItemPrice,
+                GETDATE(),
+                1,
+                @UserId    -- Grabbing the logged-in User's ID
+            FROM Cart", con);
+
                 insertSales.Parameters.AddWithValue("@SalesId", salesId);
+                insertSales.Parameters.AddWithValue("@UserId", currentUserId);
+
                 insertSales.ExecuteNonQuery();
+
                 new SqlCommand("DELETE FROM Cart", con).ExecuteNonQuery();
             }
             Response.Redirect("Receipt.aspx");
