@@ -45,9 +45,20 @@ namespace ProductPage
 
         protected void btnSubmitReturn_Click(object sender, EventArgs e)
         {
+            Page.Validate();
+
+            if (!Page.IsValid) return;
+
             if (string.IsNullOrEmpty(ddlItems.SelectedValue))
             {
                 lblMessage.Text = "No purchased items available to return.";
+                lblMessage.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtReason.Text.Trim()))
+            {
+                lblMessage.Text = "Please enter a reason for the return.";
                 lblMessage.ForeColor = System.Drawing.Color.Red;
                 return;
             }

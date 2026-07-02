@@ -108,9 +108,19 @@
             <asp:DropDownList ID="ddlItems" runat="server" CssClass="form-control"></asp:DropDownList>
         </div>
         
-        <div class="form-group">
+       <div class="form-group">
             <label>Reason for Return:</label>
             <asp:TextBox ID="txtReason" runat="server" TextMode="MultiLine" Rows="4" CssClass="form-control" Placeholder="e.g., Damaged on arrival, wrong item delivered..."></asp:TextBox>
+            
+            <asp:RequiredFieldValidator ID="rfvReason" runat="server" 
+                ControlToValidate="txtReason" 
+                ErrorMessage="Reason for return is required." 
+                ForeColor="#c0392b" 
+                Display="Dynamic" 
+                Font-Size="13px" 
+                Font-Bold="true"
+                style="display: block; margin-top: 5px;">
+            </asp:RequiredFieldValidator>
         </div>
 
         <div class="form-group">
