@@ -84,7 +84,7 @@ namespace ProductPage.Admin
         {
             SqlDataSource1.SelectParameters.Clear();
 
-            string where = "WHERE 1=1";
+            string where = "WHERE s.Confirmed = 1";
 
             if (!string.IsNullOrEmpty(catId))
             {
@@ -124,6 +124,22 @@ namespace ProductPage.Admin
                            ? null : ddlCategory.SelectedValue;
             dateFrom = DateTime.TryParse(txtDateFrom.Text, out DateTime df) ? df : (DateTime?)null;
             dateTo = DateTime.TryParse(txtDateTo.Text, out DateTime dt) ? dt : (DateTime?)null;
+        }
+
+        // ── Preserve filter when sorting the GridView ────────────────────────────
+        protected void gvRecent_Sorting(object sender, System.Web.UI.WebControls.GridViewSortEventArgs e)
+        {
+            ReadFilters(out string catId, out DateTime? dateFrom, out DateTime? dateTo);
+            ApplyGridFilter(catId, dateFrom, dateTo);
+        }
+
+        // ── Preserve filter when paging the GridView ────────────────────────────
+        protected void gvRecent_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
+        {
+            ReadFilters(out string catId, out DateTime? dateFrom, out DateTime? dateTo);
+            ApplyGridFilter(catId, dateFrom, dateTo);
+            gvRecent.PageIndex = e.NewPageIndex;
+            gvRecent.DataBind();
         }
 
         // ── Button handlers ───────────────────────────────────────────────────

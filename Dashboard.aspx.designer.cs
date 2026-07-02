@@ -9,36 +9,99 @@
 
 namespace ProductPage.Admin
 {
+
+
     public partial class Dashboard
     {
-        /// <summary>lblTotalSales control.</summary>
-        protected global::System.Web.UI.WebControls.Label lblTotalSales;
 
-        /// <summary>lblTotalOrders control.</summary>
-        protected global::System.Web.UI.WebControls.Label lblTotalOrders;
-
-        /// <summary>lblTotalCustomers control.</summary>
-        protected global::System.Web.UI.WebControls.Label lblTotalCustomers;
-
-        /// <summary>ddlCategory — filter dropdown populated from Categories table.</summary>
+        /// <summary>
+        /// ddlCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
 
-        /// <summary>txtDateFrom — date range start filter.</summary>
+        /// <summary>
+        /// txtDateFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDateFrom;
 
-        /// <summary>txtDateTo — date range end filter.</summary>
+        /// <summary>
+        /// txtDateTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDateTo;
 
-        /// <summary>btnApply — applies selected filters.</summary>
+        /// <summary>
+        /// btnApply control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnApply;
 
-        /// <summary>btnReset — clears all filters.</summary>
+        /// <summary>
+        /// btnReset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnReset;
 
-        /// <summary>SqlDataSource1 control.</summary>
+        /// <summary>
+        /// lblTotalSales control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalSales;
+
+        /// <summary>
+        /// lblTotalOrders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalOrders;
+
+        /// <summary>
+        /// lblTotalCustomers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalCustomers;
+
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
-        /// <summary>gvRecent GridView control.</summary>
+        /// <summary>
+        /// gvRecent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvRecent;
     }
 }

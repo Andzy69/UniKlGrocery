@@ -180,7 +180,9 @@
             GridLines="None" CellPadding="10"
             CssClass="admin-table"
             AllowPaging="True" AllowSorting="True"
-            DataSourceID="SqlDataSource1">
+            DataSourceID="SqlDataSource1"
+            OnPageIndexChanging="gvRecent_PageIndexChanging"
+            OnSorting="gvRecent_Sorting">
             <HeaderStyle BackColor="#2c3e50" ForeColor="White" />
             <Columns>
                 <asp:BoundField DataField="SalesId"      HeaderText="Order ID"   SortExpression="SalesId" />
